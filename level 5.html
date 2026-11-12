@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Blue 💙</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #064e3b, #16a34a, #052e16);
+    color: white;
+}
+
+.hearts {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    color: #93c5fd;
+    animation: float 8s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    text-align: center;
+    padding: 25px;
+    z-index: 1;
+}
+
+h1 {
+    color: #60a5fa;
+    font-size: clamp(35px, 9vw, 65px);
+    text-shadow: 0 0 25px #3b82f6;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #3b82f6; }
+    to { text-shadow: 0 0 35px #60a5fa; }
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #dcfce7;
+    margin-top: 15px;
+}
+
+button {
+    margin-top: 35px;
+    padding: 16px 55px;
+    border: 1px solid #93c5fd;
+    border-radius: 50px;
+    background: rgba(59, 130, 246, 0.2);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px #3b82f655;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    background: #2563eb;
+}
+
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 5;
+}
+
+.popup-box {
+    background: linear-gradient(145deg, #064e3b, #14532d);
+    padding: 35px 25px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    border: 1px solid #60a5fa;
+    box-shadow: 0 0 35px #3b82f666;
+    animation: appear 0.4s ease;
+}
+
+@keyframes appear {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.popup-box h2 {
+    color: #60a5fa;
+}
+
+.popup-box p {
+    color: white;
+    font-size: 18px;
+}
+
+.close {
+    margin-top: 20px;
+    padding: 12px 35px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="container">
+    <h1>Happy Birthday Blue 💙</h1>
+    <p class="subtitle">A little surprise just for you ✨</p>
+    <button onclick="openPopup()">NEXT →</button>
+</div>
+
+<div class="popup" id="popup">
+    <div class="popup-box">
+        <h2>✨ Level 5 ✨</h2>
+        <p>This is Level 5 Website 💙</p>
+        <p>Ready for brr brr patapim 18 🌷</p>
+        <button class="close" onclick="closePopup()">OK 💚</button>
+    </div>
+</div>
+
+<script>
+function openPopup() {
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+// Floating hearts
+for (let i = 0; i < 18; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💙";
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.animationDuration = (5 + Math.random() * 8) + "s";
+    heart.style.animationDelay = Math.random() * 5 + "s";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    document.getElementById("hearts").appendChild(heart);
+}
+</script>
+
+</body>
+</html>
